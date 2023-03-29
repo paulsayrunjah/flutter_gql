@@ -1,0 +1,46 @@
+import 'package:flutter/material.dart';
+
+textFieldInput(
+        {final controller,
+        final keyboardType,
+        final validator,
+        final fillColor,
+        final hintText = '',
+        final enabled = true,
+        final readOnly = false,
+        final obscureText = false,
+        final prefixIcon,
+        final suffixIcon,
+        final onChanged,
+        final onTap,
+        final minLines,
+        final maxLines,
+        final autovalidateMode,
+        final inputFormatters}) =>
+    Material(
+      elevation: 8,
+      borderRadius: BorderRadius.circular(12),
+      child: TextFormField(
+        inputFormatters: inputFormatters,
+        autovalidateMode: autovalidateMode,
+        controller: controller,
+        keyboardType: keyboardType,
+        validator: validator,
+        onChanged: onChanged,
+        readOnly: readOnly,
+        obscureText: obscureText,
+        onTap: onTap,
+        enabled: enabled,
+        minLines: minLines,
+        maxLines: maxLines,
+        textInputAction: TextInputAction.next,
+        style: TextStyle(color: Colors.grey[800]!),
+        decoration: InputDecoration(
+          filled: true,
+          fillColor: fillColor ?? Colors.white,
+          hintText: hintText,
+          prefixIcon: prefixIcon,
+          suffixIcon: suffixIcon,
+        ),
+      ),
+    );
