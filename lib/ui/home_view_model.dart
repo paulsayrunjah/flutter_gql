@@ -1,6 +1,7 @@
 import 'package:stacked/stacked.dart';
 import 'package:test_gql/app/locator.dart';
 import 'package:test_gql/models/person.dart';
+import 'package:test_gql/services/api/errors/network_call_error.dart';
 import 'package:test_gql/services/api/user/user_api.dart';
 
 class HomeViewModel extends BaseViewModel {
@@ -13,7 +14,8 @@ class HomeViewModel extends BaseViewModel {
   getPeople() {
     showLoader();
     userApi.getPeople().catchError((final error) {
-      onCatchError?.call(error);
+      final errorHandler = NetworkErrorObject.handleError(error);
+      onCatchError?.call(errorHandler.message);
       hideLoader();
     }).then((final value) {
       hideLoader();

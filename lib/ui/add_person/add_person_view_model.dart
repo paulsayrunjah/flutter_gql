@@ -31,6 +31,19 @@ class AddPersonViewModel extends BaseViewModel {
     });
   }
 
+  addImage(final file) {
+    print(file);
+    showLoader();
+    userApi.addPersonImage(file).catchError((final value) {
+      hideLoader();
+    }).then((value) {
+      hideLoader();
+      if (value == null) {
+        return;
+      }
+    });
+  }
+
   showLoader() {
     isLoading = true;
     notifyListeners();

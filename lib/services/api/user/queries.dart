@@ -3,6 +3,7 @@ const queryGetPeople = r'''
   people {
     _id
     name
+    image
   }
 }
 ''';

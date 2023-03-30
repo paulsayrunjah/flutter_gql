@@ -5,3 +5,9 @@ const String mutationAddPerson = r'''
     }
   }
 ''';
+
+const String mutationAddImage = r'''
+  mutation addPersonImage($person: String, $file: Upload){
+  addPersonImage(person: $person, file: $file)
+}
+ ''';

@@ -9,9 +9,11 @@ part of 'person.dart';
 Person _$PersonFromJson(Map<String, dynamic> json) => Person(
       id: json['_id'] as String?,
       name: json['name'] as String?,
+      image: json['image'] as String?,
     );
 
 Map<String, dynamic> _$PersonToJson(Person instance) => <String, dynamic>{
       '_id': instance.id,
       'name': instance.name,
+      'image': instance.image,
     };
